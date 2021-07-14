@@ -13,7 +13,7 @@ INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 INHIBIT_PACKAGE_STRIP = "1"
-SRC_URI="file://init.d/usb \
+SRC_URI="file://init.d/usb-noadb \
          file://sbin/usb/target \
          file://sbin/usb/compositions/9001 \
          file://sbin/usb/compositions/empty \
@@ -31,8 +31,8 @@ do_install() {
       install -d ${D}/sbin/usb/compositions
 
       # USB Init script
-      install -m 0755  ${S}/init.d/usb ${D}/etc/init.d
-      ln -sf -r ${D}/etc/init.d/usb ${D}/etc/rcS.d/S97usb
+      install -m 0755  ${S}/init.d/usb-noadb ${D}/etc/init.d
+      ln -sf -r ${D}/etc/init.d/usb-noadb ${D}/etc/rcS.d/S97usb
 
       # binaries
       install -m 0755  ${S}/sbin/usb/target ${D}/sbin/usb

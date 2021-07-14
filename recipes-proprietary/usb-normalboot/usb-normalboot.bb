@@ -13,7 +13,7 @@ INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 INHIBIT_PACKAGE_STRIP = "1"
-SRC_URI="file://init.d/usb"
+SRC_URI="file://init.d/usb-normalboot"
 
 S = "${WORKDIR}"
 
@@ -23,6 +23,5 @@ do_install() {
       install -d ${D}/etc/rcS.d
 
       # USB Init script
-      install -m 0755  ${S}/init.d/usb ${D}/etc/init.d
-      ln -sf -r ${D}/etc/init.d/usb ${D}/etc/rcS.d/S97usb
+      install -m 0755  ${S}/init.d/usb-normalboot ${D}/etc/init.d
 }
